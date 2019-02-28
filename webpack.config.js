@@ -1,12 +1,13 @@
 
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-   entry: './main.js',
+   entry: './dev/components/main.js',
    output: {
-      path: path.join(__dirname, '/bundle'),
-      filename: 'index_bundle.js'
+      path: path.join(__dirname, '/web'),
+      filename: 'main.js'
    },
    devServer: {
       inline: true,
@@ -21,12 +22,25 @@ module.exports = {
             query: {
                presets: ['es2015', 'react']
             }
-         }
+         },
+          {
+            test: /\.scss$/,
+            exclude: /node_modules/,
+            use: ExtractTextPlugin.extract({
+                fallback: "style-loader",
+                use: ['css-loader', 'sass-loader']
+            })
+          }
       ]
    },
    plugins:[
       new HtmlWebpackPlugin({
-         template: './index.html'
-      })
+         template: './web/index.html'
+      }),
+      new ExtractTextPlugin({
+       filename: 'styles.css',
+       publicPath: './web/',
+       allChunks: true
+     })
    ]
  }

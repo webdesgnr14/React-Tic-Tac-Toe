@@ -1,0 +1,46 @@
+@import url(//fonts.googleapis.com/css?family=Anton);body {
+  background: #3b3b3b;
+  color: #fff;
+  font-family: "Anton", sans-serif;
+  text-align: center; }
+  body .game-title,
+  body h1 {
+    font-size: 36px;
+    font-weight: normal;
+    letter-spacing: 1px;
+    margin: 25px 0; }
+  body #root {
+    margin: 30px auto;
+    width: 900px; }
+    body #root .game .game-board {
+      margin: 45px 0;
+      width: 100%; }
+      body #root .game .game-board .status {
+        letter-spacing: 1px;
+        margin-bottom: 30px; }
+      body #root .game .game-board .board-row {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        width: 100%; }
+        body #root .game .game-board .board-row button {
+          background: transparent;
+          border: 10px solid #fff;
+          border-bottom: 0;
+          color: #fff;
+          font-family: "Anton", sans-serif;
+          font-size: 75px;
+          height: 150px;
+          width: 150px; }
+          body #root .game .game-board .board-row button + button {
+            border-left: 0; }
+        body #root .game .game-board .board-row:first-child button:first-child {
+          border-top-left-radius: 5px; }
+        body #root .game .game-board .board-row:first-child button:last-child {
+          border-top-right-radius: 5px; }
+        body #root .game .game-board .board-row:last-child button {
+          border-bottom: 10px solid #fff; }
+          body #root .game .game-board .board-row:last-child button:first-child {
+            border-bottom-left-radius: 5px; }
+          body #root .game .game-board .board-row:last-child button:last-child {
+            border-bottom-right-radius: 5px; }
