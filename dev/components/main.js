@@ -23,9 +23,11 @@ class Board extends React.Component {
 
   handleClick(i) {
     const squares = this.state.squares.slice();
+
     if (calculateWinner(squares) || squares[i]) {
       return;
     }
+
     squares[i] = this.state.xIsNext ? 'X' : 'O';
 
     this.setState({
@@ -52,7 +54,9 @@ class Board extends React.Component {
 
     return (
       <div>
-        <div className="status">{status}</div>
+        <div className="status">
+          {status}
+        </div>
         <div className="board-row">
           {this.renderSquare(0)}
           {this.renderSquare(1)}
@@ -89,6 +93,36 @@ class Game extends React.Component {
     );
   }
 }
+
+/*
+<div className="reset">
+  {this.renderResetButton()}
+</div>
+*/
+
+/*
+function resetGame(squares) {
+  // eslint-disable-next-line no-console
+  console.log(squares);
+
+  for (let i = 0; i < 3; i++){
+    squares[i] = this.state.fill(null);
+  }
+
+  squares.setState({
+    squares: squares,
+    xIsNext: true,
+  });
+}
+
+function renderResetButton(){
+  return(
+    <button className="reset-btn" onClick={() => resetGame}>
+      Rage Reset Button
+    </button>
+  );
+}
+*/
 
 function calculateWinner(squares) {
   const lines = [
